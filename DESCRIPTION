@@ -1,0 +1,33 @@
+Package: textminingR
+Title: Text Mining Workflow Tools
+Version: 0.0.0.9000
+Authors@R: 
+    person("Mikyung", "Shin", email = "shin.mikyung@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7907-9193"))
+Description: Text mining analysis tools using R. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    magrittr,
+    rlang (>= 0.4.11),
+    tibble,
+    dplyr,
+    ggplot2,
+    tidyr,
+    tidytext,
+    purrr,
+    quanteda,
+    quanteda.textstats,
+    ggraph,
+    shiny,
+    stm,
+    widyr
+Suggests: 
+    roxygen2,
+    testthat (>= 3.0.0)
+Depends: 
+    R (>= 2.10)
+Config/testthat/edition: 3
