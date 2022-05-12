@@ -14,7 +14,6 @@ suppressPackageStartupMessages({
     library(stm)
     library(stminsights)
     library(textmineR)
-    library(textminingR)
     library(tidyr)
     library(tidytext)
     library(tools)
@@ -82,7 +81,7 @@ server <- shinyServer(function(input, output, session) {
   # Preprocess data
   processed_tokens <- eventReactive(
     eventExpr = input$preprocess, {
-        united_tbl() %>% preprocess_texts()
+        united_tbl() %>% textminingR::preprocess_texts()
     })
 
   output$step2_print_preprocess <- renderPrint({
@@ -108,12 +107,12 @@ server <- shinyServer(function(input, output, session) {
   })
 
   output$step2_print_dictionary <- renderPrint({
-      tokens_dict() %>% glimpse()
+      tokens_dict() 
   })
 
   # Remove researcher-developed stop words.
   tokens_dict_no_stop <- eventReactive(input$stopword, {
-      tokens_dict() %>% tokens_remove(stopwords_list)
+      tokens_dict() %>% quanteda::tokens_remove(stopwords_list)
   })
 
   output$step2_print_stopword <- renderPrint({
@@ -124,7 +123,7 @@ server <- shinyServer(function(input, output, session) {
   # Construct a document-feature matrix
   dfm_init <- eventReactive(
     eventExpr = input$dfm_btn, {
-      dfm_init <- processed_tokens() %>% quanteda::dfm()
+      dfm_init <- tokens_dict_no_stop() %>% quanteda::dfm()
     })
 
   output$step3_plot <- plotly::renderPlotly({
@@ -158,8 +157,26 @@ server <- shinyServer(function(input, output, session) {
     rm <- isolate(input$remove.var)
 
     if(!is.null(rm)){
-      removed_processed_tokens <- quanteda::tokens_remove(processed_tokens(), rm)
-      removed_processed_tokens %>% process_dictionary() %>% quanteda::dfm()
+      removed_processed_tokens <- quanteda::tokens_remove(tokens_dict_no_stop(), rm)
+      
+      removed_tokens_dict_int <- removed_processed_tokens %>% 
+          quanteda::tokens_lookup(
+          dictionary = dictionary(dictionary_list_1),
+          valuetype = "glob",
+          verbose = TRUE,
+          exclusive = FALSE,
+          capkeys = FALSE)
+      
+      removed_tokens_dict <- removed_tokens_dict_int %>% 
+          quanteda::tokens_lookup(
+          dictionary = dictionary(dictionary_list_2),
+          valuetype = "glob",
+          verbose = TRUE,
+          exclusive = FALSE,
+          capkeys = FALSE) 
+     
+      removed_tokens_dict %>% quanteda::dfm()
+      
     }else{
       dfm_init()
     }

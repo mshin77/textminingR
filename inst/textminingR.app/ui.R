@@ -42,21 +42,29 @@ ui <- shinyUI(fluidPage(
                          conditionalPanel(
                              condition="input.conditioned == 2",
                              helpText(strong('Segment text data in a corpus into tokens (words).')),
-                             actionButton("preprocess", "Preprocess", icon = icon("table")),
-                             helpText(strong('Apply researcher-developed dictionaries.')),
-                             actionButton("dictionary", "Dictionary", icon = icon("table")),
-                             helpText(strong('Use the default stopword list from quanteda.')),
-                             actionButton("stopword", "Stopword", icon = icon("table"))
+                             actionButton("preprocess", "Apply", icon = icon("table"))
                          ),
                          # Step 3
                          conditionalPanel(
                              condition="input.conditioned == 3",
-                             helpText(strong("Construct a document-feature matrix.")),
-                             actionButton("dfm_btn", "DFM", icon = icon("file-alt"))
+                             helpText(strong('Apply researcher-developed dictionaries.')),
+                             actionButton("dictionary", "Apply", icon = icon("table"))
                          ),
                          # Step 4
                          conditionalPanel(
                              condition="input.conditioned == 4",
+                             helpText(strong('Use the default stopword list from quanteda.')),
+                             actionButton("stopword", "Apply", icon = icon("table"))
+                         ),
+                         # Step 5
+                         conditionalPanel(
+                             condition="input.conditioned == 5",
+                             helpText(strong("Construct a document-feature matrix.")),
+                             actionButton("dfm_btn", "DFM", icon = icon("file-alt"))
+                         ),
+                         # Step 6
+                         conditionalPanel(
+                             condition="input.conditioned == 6",
                              selectizeInput("remove.var", "Select or type common words to remove.", choices = NULL, options = list(maxItems = 20)),
                              actionButton("remove", "Remove", icon = icon("minus-circle"))
                          )
@@ -68,15 +76,17 @@ ui <- shinyUI(fluidPage(
                              id = "conditioned",
                              tabPanel("1. Unite texts", value = 1,
                                       DT::dataTableOutput("step1_table")),
-                             tabPanel("2. Tokenize", value = 2,
-                                      shiny::verbatimTextOutput("step2_print_preprocess"),
-                                      shiny::verbatimTextOutput("step2_print_dictionary"),
+                             tabPanel("2. Preprocess", value = 2,
+                                      shiny::verbatimTextOutput("step2_print_preprocess")),
+                             tabPanel("3. Dictionary", value = 3,
+                                      shiny::verbatimTextOutput("step2_print_dictionary")),
+                             tabPanel("4. Stopword", value = 4,
                                       shiny::verbatimTextOutput("step2_print_stopword")),
-                             tabPanel("3. Document-feature matrix", value = 3,
+                             tabPanel("5. Document-feature matrix", value = 5,
                                       plotly::plotlyOutput("step3_plot"),
                                       br(),
                                       DT::dataTableOutput("step3_table")),
-                             tabPanel("4. Remove common words", value = 4,
+                             tabPanel("6. Remove common words", value = 6,
                                       plotly::plotlyOutput("step4_plot"),
                                       br(),
                                       DT::dataTableOutput("step4_table"))
