@@ -1,6 +1,6 @@
 Package: textminingR
 Title: Text Mining Workflow Tools
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Mikyung", "Shin", email = "shin.mikyung@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7907-9193"))
