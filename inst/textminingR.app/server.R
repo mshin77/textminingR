@@ -14,6 +14,7 @@ suppressPackageStartupMessages({
     library(stm)
     library(stminsights)
     library(textmineR)
+    library(textminingR)
     library(tidyr)
     library(tidytext)
     library(tools)
@@ -81,7 +82,7 @@ server <- shinyServer(function(input, output, session) {
   # Preprocess data
   processed_tokens <- eventReactive(
     eventExpr = input$preprocess, {
-      united_tbl() %>% preprocess_texts()
+        united_tbl() %>% preprocess_texts()
     })
 
   output$step2_print_preprocess <- renderPrint({
