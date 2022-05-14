@@ -225,14 +225,26 @@ plot_topic_term <-
         topic_term_plot$tt = NULL
         topic_term_plot <- topic_term_plot %>%
             ggplot(aes(term, beta, fill = topic)) +
-            geom_col(alpha = 0.8, show.legend = FALSE) +
-            facet_wrap(~ topic, scales = "free_y", ncol = 3) +
-            coord_flip() +
+            geom_col(show.legend = FALSE, alpha = 0.8) +
+            facet_wrap(~ topic, scales = "free", ncol = 3) +
             scale_x_reordered() +
-            labs(x = NULL, y = beta, size = 5) +
-            theme_bw() +
-            theme(axis.title.x = element_blank(),
-                  axis.title.y = element_blank())
+            scale_y_continuous(labels = numform::ff_num(zero = 0, digits = 3)) +
+            coord_flip() +
+            xlab("") +
+            ylab("Word probability") +
+            theme_minimal(base_size = 14) +
+            theme(
+                panel.grid.major = element_blank(),
+                panel.grid.minor = element_blank(),
+                axis.line = element_line(color = "#3B3B3B", size = 0.3),
+                axis.ticks = element_line(color = "#3B3B3B", size = 0.3),
+                strip.text.x = element_text(size = 14, color = "#3B3B3B"), 
+                axis.text.x = element_text(size = 14, color = "#3B3B3B"),
+                axis.text.y = element_text(size = 14, color = "#3B3B3B"),
+                axis.title = element_text(size = 14, color = "#3B3B3B"),
+                axis.title.x = element_text(margin = margin(t = 7)),
+                axis.title.y = element_text(margin = margin(r = 7)))
+        
         return(topic_term_plot)
     }
 
@@ -372,12 +384,24 @@ plot_topic_probability <-
         }
         topic_by_prevalence_plot <- topic_by_prevalence_plot %>%
             ggplot(aes(topic, gamma, label = terms, fill = topic)) +
-            geom_col(show.legend = FALSE) +
+            geom_col(show.legend = FALSE, alpha = 0.8) +
             coord_flip() +
-            labs(x = NULL, size = 5) +
-            theme_bw() +
-            theme(axis.title.x = element_blank(),
-                  axis.title.y = element_blank())
+            scale_y_continuous(labels = numform::ff_num(zero = 0, digits = 2)) +
+            xlab("") +
+            ylab("Topic proportion") +
+            theme_minimal(base_size = 11) +
+            theme(
+                panel.grid.major = element_blank(),
+                panel.grid.minor = element_blank(),
+                axis.line = element_line(color = "#3B3B3B", size = 0.3),
+                axis.ticks = element_line(color = "#3B3B3B", size = 0.3),
+                strip.text.x = element_text(size = 11, color = "#3B3B3B"), 
+                axis.text.x = element_text(size = 11, color = "#3B3B3B"),
+                axis.text.y = element_text(size = 11, color = "#3B3B3B"),
+                axis.title = element_text(size = 11, color = "#3B3B3B"),
+                axis.title.x = element_text(margin = margin(t = 9)),
+                axis.title.y = element_text(margin = margin(r = 9)))
+        
         return(topic_by_prevalence_plot)
     }
 

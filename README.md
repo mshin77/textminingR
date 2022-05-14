@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # textminingR
@@ -5,8 +6,14 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of `textminingR` is to streamline the workflow for **text
-mining analysis.**
+`textminingR` provides a supporting workflow for text mining analysis.
+The web app incorporates
+[quanteda](https://github.com/quanteda/quanteda) (preprocess),
+[stm](https://github.com/bstewart/stm) (structural topic modeling), and
+[ggraph](https://github.com/thomasp85/ggraph) as well as
+[widyr](https://github.com/dgrtwo/widyr) (network analysis).
+[tidytext](https://github.com/cran/tidytext) was implemented to tidy
+non-tidy format objects.
 
 ## Installation
 
@@ -20,15 +27,21 @@ install.packages("textminingR")
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("mshin77/textminingR")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Launch and browser the textminingR app:
 
 ``` r
 library(textminingR)
-# textminingR.app()
+textminingR.app()
+#> 
+#> Listening on http://127.0.0.1:3363
+#> [1] ""
+#> [1] 0
+#> attr(,"class")
+#> [1] "integer"                "shinyActionButtonValue"
 ```

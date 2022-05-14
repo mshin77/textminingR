@@ -18,13 +18,14 @@ Imports:
     ggplot2,
     tidyr,
     tidytext,
-    purrr,
     quanteda,
-    quanteda.textstats,
-    ggraph,
     shiny,
     stm,
-    widyr
+    ggraph,
+    widyr,
+    numform,
+    purrr,
+    quanteda.textstats
 Suggests: 
     roxygen2,
     testthat (>= 3.0.0)

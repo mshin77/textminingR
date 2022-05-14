@@ -11,11 +11,13 @@ body {
     color: #0c1f4a;
 }
 
+
 /* navbar */
 .navbar-inverse {
     background-color: #0c1f4a;
     border-color: #fff;
 }
+
 
 /* container-fluid */
 .container-fluid {
