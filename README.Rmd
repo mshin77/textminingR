@@ -40,6 +40,6 @@ Launch and browser the textminingR app:
 
 ```{r example}
 library(textminingR)
-textminingR.app()
+# textminingR.app()
 ```
 

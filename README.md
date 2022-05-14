@@ -37,11 +37,5 @@ Launch and browser the textminingR app:
 
 ``` r
 library(textminingR)
-textminingR.app()
-#> 
-#> Listening on http://127.0.0.1:3363
-#> [1] ""
-#> [1] 0
-#> attr(,"class")
-#> [1] "integer"                "shinyActionButtonValue"
+# textminingR.app()
 ```
