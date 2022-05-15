@@ -4,6 +4,8 @@
 # textminingR
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/mshin77/textminingR/workflows/R-CMD-check/badge.svg)](https://github.com/mshin77/textminingR/actions)
 <!-- badges: end -->
 
 `textminingR` provides a supporting workflow for text mining analysis.

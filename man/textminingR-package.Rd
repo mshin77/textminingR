@@ -8,6 +8,13 @@
 \description{
 Text mining analysis tools using R.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://mshin77.github.io/textminingR}
+}
+
+}
 \author{
 \strong{Maintainer}: Mikyung Shin \email{shin.mikyung@gmail.com} (\href{https://orcid.org/0000-0001-7907-9193}{ORCID})
 
