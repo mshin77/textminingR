@@ -11,7 +11,8 @@ Text mining analysis tools using R.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://mshin77.github.io/textminingR}
+  \item \url{https://github.com/mshin77/textminingR}
+  \item Report bugs at \url{https://github.com/mshin77/textminingR/issues}
 }
 
 }
