@@ -1,24 +1,18 @@
 ---
-output: github_document
+title: "vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
-
-# textminingR
-
-<!-- badges: start -->
-[![R-CMD-check](https://github.com/mshin77/textminingR/workflows/R-CMD-check/badge.svg)](https://github.com/mshin77/textminingR/actions)
-[![Codecov test coverage](https://codecov.io/gh/mshin77/textminingR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/mshin77/textminingR?branch=main)
-<!-- badges: end -->
 
 `textminingR` provides a supporting workflow for text mining analysis. The web app incorporates [quanteda](https://github.com/quanteda/quanteda) (preprocess), [stm](https://github.com/bstewart/stm) (structural topic modeling), and [ggraph](https://github.com/thomasp85/ggraph) as well as [widyr](https://github.com/dgrtwo/widyr) (network analysis). [tidytext](https://github.com/cran/tidytext) was implemented to tidy non-tidy format objects.
 
@@ -26,16 +20,16 @@ knitr::opts_chunk$set(
 
 The development version from [GitHub](https://github.com/) with:
 
-``` r
-install.packages("devtools")
-devtools::install_github("mshin77/textminingR")
+```{r}
+# install.packages("devtools")
+# devtools::install_github("mshin77/textminingR")
 ```
+
 ## Example
 
 Launch and browser the textminingR app:
 
 ```{r example}
-library(textminingR)
+# library(textminingR)
 # textminingR.app()
 ```
-

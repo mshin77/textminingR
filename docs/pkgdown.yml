@@ -1,9 +1,7 @@
 pandoc: 2.17.1.1
 pkgdown: 2.0.3
 pkgdown_sha: ~
-articles: {}
-last_built: 2022-05-14T18:09Z
-urls:
-  reference: https://mshin77.github.io/textminingR/reference
-  # article: https://mshin77.github.io/textminingR/articles
+articles:
+  vignette: vignette.html
+last_built: 2022-05-15T01:56Z
 

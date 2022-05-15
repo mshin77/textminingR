@@ -21,14 +21,7 @@ non-tidy format objects.
 
 ## Installation
 
-You can install the released version of textminingR from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("textminingR")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+The development version from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
