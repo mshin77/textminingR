@@ -27,6 +27,7 @@ Imports:
     purrr,
     quanteda.textstats
 Suggests: 
+    covr,
     roxygen2,
     testthat (>= 3.0.0)
 Depends: 
