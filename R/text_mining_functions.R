@@ -58,7 +58,7 @@ preprocess_texts <-
 
         # Remove English stopwords.
         toks_lower_no_stop <- toks_lower %>%
-            tokens_remove(stopwords("en"),
+            quanteda::tokens_remove(stopwords("en"),
                           valuetype = "glob",
                           window = 0,
                           verbose = TRUE,
@@ -66,7 +66,7 @@ preprocess_texts <-
 
         # Specify the minimum length in characters for tokens (at least 2).
         toks_lower_no_stop_adj <- toks_lower_no_stop %>%
-            tokens_select(min_nchar=2L,
+            quanteda::tokens_select(min_nchar=2L,
                           verbose = TRUE)
 
         return(toks_lower_no_stop_adj)
