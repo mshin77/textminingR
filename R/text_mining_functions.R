@@ -58,7 +58,7 @@ preprocess_texts <-
 
         # Remove English stopwords.
         toks_lower_no_stop <- toks_lower %>%
-            quanteda::tokens_remove(stopwords("en"),
+            quanteda::tokens_remove(quanteda::stopwords("en"),
                           valuetype = "glob",
                           window = 0,
                           verbose = TRUE,
